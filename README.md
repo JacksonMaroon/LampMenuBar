@@ -2,7 +2,7 @@
 
 A minimalist macOS menu bar controller for a BLE smart lamp.
 
-![LampMenuBar menu popover](assets/menu-bar.png)
+![LampMenuBar menu popover](assets/menu-bar-v2.png)
 
 ## Features
 - One-click power toggle
