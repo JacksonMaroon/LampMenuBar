@@ -4,41 +4,75 @@ struct LampPopoverView: View {
     @ObservedObject var controller: LampController
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Color buttons row
-            HStack(spacing: 10) {
-                ForEach(LampController.LampColor.allCases, id: \.self) { color in
-                    ColorButton(
-                        color: color,
-                        isSelected: controller.selectedColor == color,
-                        action: { controller.setColor(color) }
-                    )
-                }
+        let swatchSize: CGFloat = 28
+        let swatchSpacing: CGFloat = 10
+        let swatchCount = CGFloat(LampController.LampColor.allCases.count)
+        let sliderWidth = (swatchCount * swatchSize) + ((swatchCount - 1) * swatchSpacing)
+        let powerSize: CGFloat = 42
 
-                // Power button
-                Button(action: { controller.togglePower() }) {
-                    ZStack {
+        HStack(spacing: 14) {
+            // Power button
+            Button(action: { controller.togglePower() }) {
+                ZStack {
+                    Circle()
+                        .fill(controller.isOn ?
+                              LinearGradient(colors: [.gray.opacity(0.22), .gray.opacity(0.12)], startPoint: .top, endPoint: .bottom) :
+                              LinearGradient(colors: [.gray.opacity(0.3), .gray.opacity(0.2)], startPoint: .top, endPoint: .bottom))
+                        .frame(width: powerSize, height: powerSize)
+
+                    Group {
                         Circle()
-                            .fill(controller.isOn ?
-                                  LinearGradient(colors: [.yellow, .orange], startPoint: .top, endPoint: .bottom) :
-                                  LinearGradient(colors: [.gray.opacity(0.3), .gray.opacity(0.2)], startPoint: .top, endPoint: .bottom))
-                            .frame(width: 28, height: 28)
+                            .stroke(Color.yellow.opacity(0.55), lineWidth: 3)
+                            .blur(radius: 2)
+                            .frame(width: powerSize, height: powerSize)
 
-                        Image(systemName: "lightbulb.fill")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundStyle(controller.isOn ? .white : .gray)
+                        Circle()
+                            .stroke(Color.orange.opacity(0.35), lineWidth: 8)
+                            .blur(radius: 7)
+                            .frame(width: powerSize, height: powerSize)
+                            .scaleEffect(1.08)
+
+                        Circle()
+                            .stroke(Color.yellow.opacity(0.2), lineWidth: 12)
+                            .blur(radius: 10)
+                            .frame(width: powerSize, height: powerSize)
+                            .scaleEffect(1.18)
+                    }
+                    .opacity(controller.isOn ? 1 : 0)
+
+                    Image(systemName: "lightbulb.fill")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(controller.isOn ? .white : .gray)
+                        .shadow(color: controller.isOn ? Color.yellow.opacity(0.6) : .clear, radius: 6)
+                }
+            }
+            .buttonStyle(.plain)
+
+            Divider()
+                .frame(height: 44)
+                .opacity(0.4)
+
+            VStack(alignment: .leading, spacing: 12) {
+                // Color buttons row
+                HStack(spacing: swatchSpacing) {
+                    ForEach(LampController.LampColor.allCases, id: \.self) { color in
+                        ColorButton(
+                            color: color,
+                            isSelected: controller.selectedColor == color,
+                            action: { controller.setColor(color) }
+                        )
                     }
                 }
-                .buttonStyle(.plain)
-            }
 
-            // Brightness slider
-            BrightnessSlider(
-                value: $controller.brightness,
-                selectedColor: controller.selectedColor,
-                onBegin: { controller.cancelPendingBrightnessCommit() },
-                onCommit: { controller.commitBrightness($0) }
-            )
+                // Brightness slider
+                BrightnessSlider(
+                    value: $controller.brightness,
+                    width: sliderWidth,
+                    selectedColor: controller.selectedColor,
+                    onBegin: { controller.cancelPendingBrightnessCommit() },
+                    onCommit: { controller.commitBrightness($0) }
+                )
+            }
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 12)
@@ -72,15 +106,31 @@ struct ColorButton: View {
 
 struct BrightnessSlider: View {
     @Binding var value: Double
+    let width: CGFloat
     let selectedColor: LampController.LampColor
     let onBegin: () -> Void
     let onCommit: (Double) -> Void
-    private let sliderWidth: CGFloat = 280
     @State private var isDragging = false
 
     private var trackColors: [Color] {
-        let highlight = selectedColor == .white ? Color.white : selectedColor.color
-        return [.black, .gray, highlight.opacity(0.7), highlight]
+        if selectedColor == .white {
+            return [
+                Color.black,
+                Color.gray.opacity(0.45),
+                Color.white.opacity(0.85),
+                Color.white
+            ]
+        }
+
+        let hsv = selectedColor.hsv
+        let hue = Double(hsv.h) / 180.0
+        let sat = Double(hsv.s) / 100.0
+        return [
+            Color(hue: hue, saturation: sat * 0.25, brightness: 0.12),
+            Color(hue: hue, saturation: sat * 0.45, brightness: 0.35),
+            Color(hue: hue, saturation: sat * 0.7, brightness: 0.65),
+            Color(hue: hue, saturation: sat * 0.9, brightness: 0.95)
+        ]
     }
 
     var body: some View {
@@ -94,7 +144,7 @@ struct BrightnessSlider: View {
                         endPoint: .trailing
                     )
                 )
-                .frame(width: sliderWidth, height: 8)
+                .frame(width: width, height: 8)
 
             // Thumb
             Circle()
@@ -109,7 +159,7 @@ struct BrightnessSlider: View {
                                 isDragging = true
                                 onBegin()
                             }
-                            let newValue = gesture.location.x / sliderWidth * 100
+                            let newValue = gesture.location.x / width * 100
                             value = min(max(newValue, 0), 100)
                         }
                         .onEnded { _ in
@@ -118,11 +168,11 @@ struct BrightnessSlider: View {
                         }
                 )
         }
-        .frame(width: sliderWidth, height: 18)
+        .frame(width: width, height: 18)
     }
 
     private func thumbOffset() -> CGFloat {
-        let usableWidth = sliderWidth - 18
+        let usableWidth = width - 18
         return (value / 100) * usableWidth
     }
 }

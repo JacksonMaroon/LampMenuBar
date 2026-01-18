@@ -11,17 +11,19 @@ class LampController: ObservableObject {
     private var brightnessCommitTask: Task<Void, Never>?
 
     enum LampColor: String, CaseIterable {
-        case white, red, pink, purple, blue, green, yellow
+        case white, yellow, red, pink, purple, blue
 
         var color: Color {
             switch self {
-            case .white: return .white
-            case .red: return .red
-            case .pink: return .pink
-            case .purple: return .purple
-            case .blue: return .blue
-            case .green: return .green
-            case .yellow: return .yellow
+            case .white:
+                return .white
+            default:
+                let hsv = hsv
+                return Color(
+                    hue: Double(hsv.h) / 180.0,
+                    saturation: Double(hsv.s) / 100.0,
+                    brightness: 1.0
+                )
             }
         }
 
@@ -32,7 +34,6 @@ class LampController: ObservableObject {
             case .pink: return (165, 100)
             case .purple: return (135, 100)
             case .blue: return (120, 100)
-            case .green: return (60, 100)
             case .yellow: return (30, 100)
             }
         }
