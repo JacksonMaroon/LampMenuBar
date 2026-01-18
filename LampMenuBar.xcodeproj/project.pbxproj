@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		148FDB79A0B14A2B7620AB05 /* LampDeviceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C31992C2EAAD1C20B8A015 /* LampDeviceStore.swift */; };
+		1ED0F97F3511478310894FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFF2E1B69A4477CB49C45351 /* Assets.xcassets */; };
+		5B2283A043F5C7C80A09116E /* LampPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CB0C32AEFA9CC129203469 /* LampPopoverView.swift */; };
+		69BACBE49F06EBB7058D5FA5 /* LampMenuBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5E45DDC5593FFF225819B /* LampMenuBarApp.swift */; };
+		7CF8AB4226E15BAAD2811F72 /* LampBLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054FEF775B91FBDF9460DE2B /* LampBLEManager.swift */; };
+		AC37AE47D2DF84C12B73F93F /* LampController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398ADA691F62CA416405B88 /* LampController.swift */; };
+		AEA29E4FB4D336447C711A81 /* LampErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087E18B97B81C630D5CEEA04 /* LampErrors.swift */; };
+		B568612ECF844C9CBF539341 /* LampCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E70F4BE02A02C6A5615F2D /* LampCommands.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		054FEF775B91FBDF9460DE2B /* LampBLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampBLEManager.swift; sourceTree = "<group>"; };
+		087E18B97B81C630D5CEEA04 /* LampErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampErrors.swift; sourceTree = "<group>"; };
+		20C31992C2EAAD1C20B8A015 /* LampDeviceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampDeviceStore.swift; sourceTree = "<group>"; };
+		26F5E45DDC5593FFF225819B /* LampMenuBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampMenuBarApp.swift; sourceTree = "<group>"; };
+		62CB0C32AEFA9CC129203469 /* LampPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampPopoverView.swift; sourceTree = "<group>"; };
+		72E70F4BE02A02C6A5615F2D /* LampCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampCommands.swift; sourceTree = "<group>"; };
+		91373F11022233C7651BE674 /* LampMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LampMenuBar.entitlements; sourceTree = "<group>"; };
+		92653AD6047E35642661A0CC /* LampMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LampMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B398ADA691F62CA416405B88 /* LampController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampController.swift; sourceTree = "<group>"; };
+		FFF2E1B69A4477CB49C45351 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		46AD2D94FD1C7B7D37E0A005 = {
+			isa = PBXGroup;
+			children = (
+				B1B50BE9369B44CB92325AE2 /* LampMenuBar */,
+				8FB64F05AE20141632EAE08A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8FB64F05AE20141632EAE08A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92653AD6047E35642661A0CC /* LampMenuBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1B50BE9369B44CB92325AE2 /* LampMenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				FFF2E1B69A4477CB49C45351 /* Assets.xcassets */,
+				054FEF775B91FBDF9460DE2B /* LampBLEManager.swift */,
+				72E70F4BE02A02C6A5615F2D /* LampCommands.swift */,
+				B398ADA691F62CA416405B88 /* LampController.swift */,
+				20C31992C2EAAD1C20B8A015 /* LampDeviceStore.swift */,
+				087E18B97B81C630D5CEEA04 /* LampErrors.swift */,
+				91373F11022233C7651BE674 /* LampMenuBar.entitlements */,
+				26F5E45DDC5593FFF225819B /* LampMenuBarApp.swift */,
+				62CB0C32AEFA9CC129203469 /* LampPopoverView.swift */,
+			);
+			path = LampMenuBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D2A14A576C6DCEA5D6DF933 /* LampMenuBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 208D03191D7C7304FC626B30 /* Build configuration list for PBXNativeTarget "LampMenuBar" */;
+			buildPhases = (
+				591ED38A8B80F2C8AA56951D /* Sources */,
+				CBBEB995B177D9054E2E0618 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LampMenuBar;
+			packageProductDependencies = (
+			);
+			productName = LampMenuBar;
+			productReference = 92653AD6047E35642661A0CC /* LampMenuBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F57C3C465D3804FDCC77A465 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					9D2A14A576C6DCEA5D6DF933 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 60B59C84FA5A5E90384DB72A /* Build configuration list for PBXProject "LampMenuBar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 46AD2D94FD1C7B7D37E0A005;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D2A14A576C6DCEA5D6DF933 /* LampMenuBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBBEB995B177D9054E2E0618 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ED0F97F3511478310894FB2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		591ED38A8B80F2C8AA56951D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CF8AB4226E15BAAD2811F72 /* LampBLEManager.swift in Sources */,
+				B568612ECF844C9CBF539341 /* LampCommands.swift in Sources */,
+				AC37AE47D2DF84C12B73F93F /* LampController.swift in Sources */,
+				148FDB79A0B14A2B7620AB05 /* LampDeviceStore.swift in Sources */,
+				AEA29E4FB4D336447C711A81 /* LampErrors.swift in Sources */,
+				69BACBE49F06EBB7058D5FA5 /* LampMenuBarApp.swift in Sources */,
+				5B2283A043F5C7C80A09116E /* LampPopoverView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		14497B90A5696E0F9D1B956B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LampMenuBar/LampMenuBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Control your lamp via Bluetooth";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacksonmaroon.LampMenuBar;
+				PRODUCT_NAME = Lamp;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		5B4D525C4B43E24023EC833A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7B01C6CBFD2D9F1940F2C2F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LampMenuBar/LampMenuBar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Control your lamp via Bluetooth";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacksonmaroon.LampMenuBar;
+				PRODUCT_NAME = Lamp;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		93216DFE24A29F177CBA574E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		208D03191D7C7304FC626B30 /* Build configuration list for PBXNativeTarget "LampMenuBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14497B90A5696E0F9D1B956B /* Debug */,
+				7B01C6CBFD2D9F1940F2C2F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		60B59C84FA5A5E90384DB72A /* Build configuration list for PBXProject "LampMenuBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B4D525C4B43E24023EC833A /* Debug */,
+				93216DFE24A29F177CBA574E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F57C3C465D3804FDCC77A465 /* Project object */;
+}

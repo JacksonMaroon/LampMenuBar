@@ -1,0 +1,31 @@
+name: LampMenuBar
+options:
+  bundleIdPrefix: com.jacksonmaroon
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15.0"
+
+targets:
+  LampMenuBar:
+    type: application
+    platform: macOS
+    sources:
+      - LampMenuBar
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jacksonmaroon.LampMenuBar
+        PRODUCT_NAME: Lamp
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: true
+        INFOPLIST_KEY_LSUIElement: true
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: "Control your lamp via Bluetooth"
+        SWIFT_VERSION: "5.9"
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_STYLE: Automatic
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    entitlements:
+      path: LampMenuBar/LampMenuBar.entitlements
+      properties:
+        com.apple.security.device.bluetooth: true
