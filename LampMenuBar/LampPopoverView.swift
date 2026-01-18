@@ -33,10 +33,12 @@ struct LampPopoverView: View {
             }
 
             // Brightness slider
-            BrightnessSlider(value: $controller.brightness)
-                .onChange(of: controller.brightness) { _, newValue in
-                    controller.setBrightness(newValue)
-                }
+            BrightnessSlider(
+                value: $controller.brightness,
+                selectedColor: controller.selectedColor,
+                onBegin: { controller.cancelPendingBrightnessCommit() },
+                onCommit: { controller.commitBrightness($0) }
+            )
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 12)
@@ -70,7 +72,16 @@ struct ColorButton: View {
 
 struct BrightnessSlider: View {
     @Binding var value: Double
+    let selectedColor: LampController.LampColor
+    let onBegin: () -> Void
+    let onCommit: (Double) -> Void
     private let sliderWidth: CGFloat = 280
+    @State private var isDragging = false
+
+    private var trackColors: [Color] {
+        let highlight = selectedColor == .white ? Color.white : selectedColor.color
+        return [.black, .gray, highlight.opacity(0.7), highlight]
+    }
 
     var body: some View {
         ZStack(alignment: .leading) {
@@ -78,7 +89,7 @@ struct BrightnessSlider: View {
             Capsule()
                 .fill(
                     LinearGradient(
-                        colors: [.black, .gray, .yellow.opacity(0.8), .yellow],
+                        colors: trackColors,
                         startPoint: .leading,
                         endPoint: .trailing
                     )
@@ -94,8 +105,16 @@ struct BrightnessSlider: View {
                 .gesture(
                     DragGesture(minimumDistance: 0)
                         .onChanged { gesture in
+                            if !isDragging {
+                                isDragging = true
+                                onBegin()
+                            }
                             let newValue = gesture.location.x / sliderWidth * 100
                             value = min(max(newValue, 0), 100)
+                        }
+                        .onEnded { _ in
+                            isDragging = false
+                            onCommit(value)
                         }
                 )
         }
